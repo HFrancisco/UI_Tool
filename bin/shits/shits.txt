@@ -1,0 +1,24 @@
+JPanel panelOutput = new JPanel();
+		panelOutput.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		panelOutput.setBounds(214, 0, 983, 662);
+		contentPane.add(panelOutput);
+		panelOutput.setLayout(null);
+		PanelDropTarget panelDropTgt = new PanelDropTarget(panelOutput);
+		
+		JPanel panelComponents = new JPanel();
+		panelComponents.setBorder(new LineBorder(new Color(0, 0, 0), 2, true));
+		panelComponents.setBounds(0, 0, 159, 662);
+		contentPane.add(panelComponents);
+		panelComponents.setLayout(null);
+		
+		DnDLabel lblComponents = new DnDLabel("New label");
+		lblComponents.setBounds(56, 60, 46, 14);
+		panelComponents.add(lblComponents);
+		
+		DnDButton btnComponents = new DnDButton("New button");
+		btnComponents.setBounds(35, 104, 89, 23);
+		panelComponents.add(btnComponents);
+		
+		DnDTextArea txtComponents = new DnDTextArea();
+		txtComponents.setBounds(35, 170, 89, 52);
+		panelComponents.add(txtComponents);
