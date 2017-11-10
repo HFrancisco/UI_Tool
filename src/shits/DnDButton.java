@@ -15,6 +15,10 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.TransferHandler;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 public class DnDButton extends JButton implements Transferable, DragSourceListener, DragGestureListener{
 
 	//marks this JButton as the source of the Drag
@@ -25,7 +29,7 @@ public class DnDButton extends JButton implements Transferable, DragSourceListen
     public DnDButton(){
         this("");
     }
-
+    
     public DnDButton(String message){
         super(message);
 
@@ -38,12 +42,12 @@ public class DnDButton extends JButton implements Transferable, DragSourceListen
               }
         };
         setTransferHandler(t);
-
+        
         //The Drag will copy the DnDButton rather than moving it
         source = new DragSource();
         source.createDefaultDragGestureRecognizer(this, DnDConstants.ACTION_COPY, this);
     }
-
+    
      //The DataFlavor is a marker to let the DropTarget know how to
      //handle the Transferable
     public DataFlavor[] getTransferDataFlavors() {
@@ -57,7 +61,6 @@ public class DnDButton extends JButton implements Transferable, DragSourceListen
     public Object getTransferData(DataFlavor flavor) {
         return this;
     }
-
 
     public void dragEnter(DragSourceDragEvent dsde) {}
     public void dragOver(DragSourceDragEvent dsde) {}
